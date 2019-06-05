@@ -1,0 +1,41 @@
+{
+  "name": "web-interview",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=10.13"
+  },
+  "scripts": {
+    "start": "npm run server & react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "precommit": "lint-staged",
+    "server": "npm run json-server --watch ./data/data.json --port 3010"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --single-quote --trailing-comma es5 --no-semi --write",
+      "eslint --quiet",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "json-server": "^0.14.0",
+    "node-sass": "^4.10.0",
+    "normalize.css": "^8.0.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  },
+  "devDependencies": {
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.5",
+    "react-scripts": "^2.1.1"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
