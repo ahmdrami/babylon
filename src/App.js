@@ -10,8 +10,7 @@ export const StateContext = React.createContext()
 const App = () => {
   const [data, setData] = useState(() => ({
     user: {},
-    appointmentSlots: [],
-    consultantType: ['GP', 'Specialist', 'Nurse', 'Therapist', 'Triage Nurse'],
+    consultantTypes: ['GP', 'Specialist', 'Nurse', 'Therapist', 'Triage Nurse'],
   }))
 
   useEffect(() => {
@@ -26,14 +25,7 @@ const App = () => {
       user: response,
     }))
   }
-  const fetchAppointments = async () => {
-    let response = await fetch(`${API_ENDPOINT}/users/1`)
-    response = await response.json()
-    setData(ps => ({
-      ...ps,
-      user: response,
-    }))
-  }
+ 
   return (
     <StateContext.Provider value={data}>
       <ThemeProvider theme={theme}>

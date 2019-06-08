@@ -8,4 +8,17 @@ export default createGlobalStyle`
     font-family: 'Lato', sans-serif;
   }
 
+  button {
+    outline: none;
+    cursor: pointer;
+  }
+
+  textarea, input {
+    outline: none;
+    transition: border-color .3s;
+    &:focus {
+      border-color: ${({ theme }) => theme.colors.positive};
+    }
+  }
+
 `
