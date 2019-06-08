@@ -97,6 +97,7 @@ const NewAppointment = () => {
         }),
       })
       setForm(formState)
+      alert('Successful')
     } catch (error) {
       console.log(error)
     }
