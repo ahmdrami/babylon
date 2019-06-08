@@ -7,16 +7,22 @@ const Profile = styled.div`
   width: ${({ size }) => size};
   overflow: hidden;
   border-radius: 50%;
-  background-color: ${({ theme }) => theme.colors.secondaryDark};
+  background-color: ${({ name, theme }) =>
+    name ? theme.colors.secondaryDark : 'transparent'};
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   font-size: 1.5em;
+  img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
 `
 const ProfilePicture = ({ img, name, size }) => {
   return (
-    <Profile size={size}>
+    <Profile size={size} name={name}>
       {img ? <img src={img} alt="profile" /> : <span>{name}</span>}
     </Profile>
   )

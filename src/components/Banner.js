@@ -1,14 +1,25 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-import ProfilePicture from './ProfilePicture';
-import { StateContext } from '../App';
+import ProfilePicture from './ProfilePicture'
+import { StateContext } from '../App'
+import Hr from './Hr'
 
 const HeaderContainer = styled.div`
-  padding: 3em 2em;
-  border: 1px solid ${({theme}) => theme.colors.borderStandard};
+  margin: 3em 0;
 `
 const StyledTitle = styled.h1`
-  font-size: 3em;
+  font-size: 4em;
+  color: ${({ theme }) => theme.colors.secondaryExtraDark};
+`
+
+const ProfileContent = styled.div`
+  display: flex;
+  align-items: center;
+  h4 {
+    font-size: 2em;
+    margin: 1em;
+    color: ${({ theme }) => theme.colors.secondaryExtraDark};
+  }
 `
 const Banner = () => {
   const { user } = useContext(StateContext)
@@ -16,12 +27,17 @@ const Banner = () => {
   return (
     <HeaderContainer>
       <StyledTitle>New Appointment</StyledTitle>
-      <ProfilePicture img={user.avatar} size="80px"/>
+      <ProfileContent>
+        <ProfilePicture img={user.avatar} size="80px" />
+        <h4>
+          {user.firstName} {user.lastName}{' '}
+        </h4>
+      </ProfileContent>
+      <Hr />
     </HeaderContainer>
   )
 }
 
-Banner.propTypes = {
-}
+Banner.propTypes = {}
 
 export default Banner

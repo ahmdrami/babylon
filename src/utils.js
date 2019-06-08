@@ -35,3 +35,6 @@ export const isTodayDate = date => {
     date.getFullYear() === todaysDate.getFullYear()
   )
 }
+
+export const isValidForm = (form, ignoreFields) =>
+  Object.keys(form).filter(key => !ignoreFields.includes(key) && !form[key]).length === 0

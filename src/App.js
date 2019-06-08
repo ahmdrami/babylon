@@ -10,7 +10,7 @@ export const StateContext = React.createContext()
 const App = () => {
   const [data, setData] = useState(() => ({
     user: {},
-    consultantTypes: ['GP', 'Specialist', 'Nurse', 'Therapist', 'Triage Nurse'],
+    consultantTypes: ['GP', 'specialist', 'nurse', 'therapist', 'triage nurse'],
   }))
 
   useEffect(() => {

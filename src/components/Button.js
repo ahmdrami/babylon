@@ -10,6 +10,11 @@ const StyledButton = styled.button`
   font-size: 24px;
   width: 100%;
   padding: 14px 32px;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 `
 Button.propTypes = {
   children: PropTypes.any.isRequired,

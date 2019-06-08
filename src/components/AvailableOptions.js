@@ -20,6 +20,7 @@ const Option = styled.button`
   margin-right: 1em;
   margin-bottom: 1em;
   font-size: 24px;
+  text-transform: capitalize;
 `
 const AvailableOptions = ({
   title,
@@ -28,6 +29,7 @@ const AvailableOptions = ({
   onClick,
   value,
   limit,
+  placeholder,
   date,
 }) => {
   let limitOptions = [...options]
@@ -38,6 +40,7 @@ const AvailableOptions = ({
         {limitOptions.length
           ? limitOptions.map(option => (
               <Option
+                role="button"
                 key={option}
                 active={value === option}
                 onClick={onClick(option)}
@@ -45,7 +48,7 @@ const AvailableOptions = ({
                 {date ? parseDate(option) : option}
               </Option>
             ))
-          : `No ${title} available`}
+          : placeholder}
 
         {limit && options.length > 3 && <Option>Another time</Option>}
       </OptionsContainer>
@@ -60,12 +63,14 @@ AvailableOptions.propTypes = {
   onClick: PropTypes.func.isRequired,
   options: PropTypes.array,
   limit: PropTypes.any,
+  placeholder: PropTypes.string,
   date: PropTypes.bool,
 }
 AvailableOptions.defaultProps = {
   options: [],
   limit: null,
-  date: false
+  placeholder: '',
+  date: false,
 }
 
 export default AvailableOptions

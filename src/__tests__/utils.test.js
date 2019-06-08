@@ -1,4 +1,8 @@
-import { extractFirstLastNameInitial, extractAndSortDates } from '../utils'
+import {
+  extractFirstLastNameInitial,
+  extractAndSortDates,
+  isValidForm,
+} from '../utils'
 
 describe('Util functions', () => {
   describe('extractFirstLastNameInitial fn', () => {
@@ -39,6 +43,24 @@ describe('Util functions', () => {
 
     it('should sort dates', () => {
       expect(extractAndSortDates(unsortedDates, 'gp')).toEqual(sortedDates)
+    })
+  })
+
+  describe('isValidateForm', () => {
+    it('should check the form and return false as email is required', () => {
+      expect(
+        isValidForm({ name: 'hi', email: '', profile: '' }, ['profile'])
+      ).toEqual(false)
+    })
+    it('should check the form and return true as email is entered', () => {
+      expect(
+        isValidForm({ name: 'hi', email: 'test@gmail.com', profile: '' }, ['profile'])
+      ).toEqual(true)
+    })
+    it('should check the form and return false as profile is required now', () => {
+      expect(
+        isValidForm({ name: 'hi', email: 'test@gmail.com', profile: '' }, [])
+      ).toEqual(false)
     })
   })
 })

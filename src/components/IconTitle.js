@@ -30,7 +30,7 @@ const IconTitle = ({ title, icon, children }) => {
     <Container>
       {icon}
       <Content>
-        <h3>{title} </h3>
+        <h3>{title}</h3>
         {children}
       </Content>
     </Container>

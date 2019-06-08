@@ -19,9 +19,12 @@ const StyledHeader = styled.header`
   }
 `
 const BurgerMenu = styled.button`
+  background-color: transparent;
+  border: none;
   svg {
-    height: 50px;
-    width: 50px;
+    height: 45px;
+    width: 45px;
+    stroke-width: 1px;
   }
 `
 
